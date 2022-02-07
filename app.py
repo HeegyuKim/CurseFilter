@@ -46,13 +46,20 @@ text = "마춤법 틀릴수도 잇지 게세끼야"
 text = st.text_area('혐오표현이 들어간 문장을 입력해보세요', text)
 
 with st.spinner('문장을 분석중이에요...'):
+    model_input = tokenizer(text, return_tensors="pt", padding="max_length", truncation=True)
+    pred = model(**model_input).logits.detach()[0]
+    pred = torch.sigmoid(pred).numpy()[0]
     cls_explainer = SequenceClassificationExplainer(
       model,
       tokenizer)
     attrs = cls_explainer(text)
 
-st.subheader("필터링된 문자열")
-st.caption(filter_curse(attrs))
-components.html(cls_explainer.visualize().data)
+print(pred)
 
+if pred > 0.5:
+    st.error("필터링 결과: " + filter_curse(attrs))
+else:
+    st.success("혐오 표현이 없습니다 :)")
+        
+components.html(cls_explainer.visualize().data)
 st.write(attrs)
