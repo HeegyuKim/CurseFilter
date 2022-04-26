@@ -1,4 +1,9 @@
 torch
+pytorch-lightning
+pandas
 transformers
 transformers-interpret
 streamlit
+click
+hydra-core
+omegaconf

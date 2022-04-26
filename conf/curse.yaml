@@ -1,0 +1,14 @@
+
+dataset: curse
+model:
+  # 'beomi/KcELECTRA-base', monologg/koelectra-small-v3-discriminator
+  huggingface_model_name: monologg/koelectra-small-v3-discriminator
+  label: curse
+  max_length: 64
+
+training:
+  batch_size: 128
+  lr: 0.0001
+  monitor: val_acc
+  monitor_mode: max
+  patience: 10

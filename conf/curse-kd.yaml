@@ -1,0 +1,21 @@
+
+dataset: curse
+
+model:
+  teacher:
+    tokenizer: beomi/KcELECTRA-base
+    checkpoint: ckpt\curse_133_val_acc=0.9167.ckpt
+  student:
+    huggingface_model_name: monologg/koelectra-small-v3-discriminator
+    pretrained: true
+    label: curse
+    max_length: 64
+  kd:
+    alpha: 0.3
+
+training:
+  batch_size: 128
+  lr: 0.0001
+  monitor: val_acc
+  monitor_mode: max
+  patience: 10

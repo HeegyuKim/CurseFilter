@@ -1,0 +1,13 @@
+
+dataset: apeach
+model:
+  huggingface_model_name: monologg/koelectra-small-v3-discriminator
+  label: hate
+  max_length: 64
+
+training:
+  batch_size: 128
+  lr: 0.0001
+  monitor: val_acc
+  monitor_mode: max
+  patience: 10

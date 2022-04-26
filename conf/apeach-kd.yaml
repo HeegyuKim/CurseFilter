@@ -1,0 +1,21 @@
+
+dataset: apeach
+
+model:
+  teacher:
+    tokenizer: beomi/KcELECTRA-base
+    checkpoint: ckpt\apeach_128_val_acc=0.8719.ckpt
+  student:
+    huggingface_model_name: monologg/koelectra-small-v3-discriminator
+    pretrained: true
+    label: hate
+    max_length: 32
+  kd:
+    alpha: 0.3
+
+training:
+  batch_size: 128
+  lr: 0.0001
+  monitor: val_acc
+  monitor_mode: max
+  patience: 10

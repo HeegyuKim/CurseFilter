@@ -1,3 +1,12 @@
+lightning_logs/
+raw/
+data/
+.vscode/
+ckpt/
+
+# hydra outputs
+outputs/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
