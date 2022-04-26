@@ -1,7 +1,7 @@
 # CurseFilter
 
 Streamlit에서 사용해보기<br/>
-https://share.streamlit.io/heegyukim/cursefilter/main/app.py
+https://share.streamlit.io/heegyukim/cursefilter/main/demo_app.py
 
 
 # 데이터 다운로드

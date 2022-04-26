@@ -22,15 +22,6 @@ def join_step_outputs(outputs):
     return result
 
 
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-import torchmetrics.functional as tm
-from sklearn.metrics import multilabel_confusion_matrix
-from transformers import BertForSequenceClassification, BertConfig
-
-
 def join_step_outputs(outputs):
     result = {}
     keys = outputs[0].keys()
