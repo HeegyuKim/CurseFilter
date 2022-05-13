@@ -22,18 +22,6 @@ def join_step_outputs(outputs):
     return result
 
 
-def join_step_outputs(outputs):
-    result = {}
-    keys = outputs[0].keys()
-    for k in keys:
-        X = [x[k] for x in outputs]
-        if X[0].dim() == 0:  # zero-dim tensor
-            result[k] = torch.stack(X)
-        else:
-            result[k] = torch.cat(X, dim=0)
-    return result
-
-
 class TextClassificationModule(pl.LightningModule):
     def __init__(self, huggingface_model_name, labels, lr=5e-4):
         super().__init__()
